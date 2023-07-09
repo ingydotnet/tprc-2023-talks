@@ -1,78 +1,69 @@
-# This is a sample Vroom input file. It should help you get started.
-#
-# Edit this file with your content. Then run `vroom vroom` to start
-# the show!
-#
-# See `perldoc Vroom` for complete details.
-#
 ---- config
-# Basic config options.
-title: Vroom!
+title: RosettaCodeData
 indent: 5
 auto_size: 1
-# height: 18
-# width: 69
 vim_opts: '-u NONE'
 skip: 0
+top: 1
 
-# The following options are for Gvim usage.
-# vim: gvim
-# gvimrc: |
-#   set fuopt=maxhorz,maxvert
-#   set guioptions=egmLtT
-#   set guifont=Bitstream_Vera_Sans_Mono:h18
-#   set guicursor=a:blinkon0-ver25-Cursor
-#   colorscheme default
+vimrc: |
+  source ../vimrc
+
 
 ---- center
-Vroom!
+RosettaCode
+The Polyglot Pirate's Treasure Chest
 
-by Ingy döt Net
+by Ingy döt ؜Net
 
-(hint: press the spacebar)
+The Perl and Raku Conference
+July 12, 2023
+Toronto
 
-----
-== Slideshows in Vim
-
-* Hate using PowerPoint or HTML Slides for Talks?
-+* Use Vroom!
-
-+* You can write you slides in Vim...
-* ...and present them in Vim!
 
 ----
-== Getting Started
+== How Many People Here...
 
-* Write a file called 'slides.vroom'.
-  * Do this in a new directory.
-* Run 'vroom vroom'.
-* Voilà!
++* Have heard of RosettaCode(.org) ?
++* Have used RosettaCode?
+  * (Looked around the website)
++* Regularly use RosettaCode?
++* Have edited a wiki page on RosettaCode?
++* Have added a new code sample to RosettaCode?
++* Have added a new programming task?
++* Have added a new programming language?
 
-----
-== Navigation
-
-* Hit <SPACE> to move forward.
-* Hit <BACKSPACE> to go backwards.
-* Hit 'Q' to quit.
-
----- perl,i4
-# This is some Perl code.
-# Notice the syntax highlighting.
-# Run it with the <RR> vim command.
-for my $word (qw(Vroom totally rocks!)) {
-    print "$word\n";
-}
 
 ----
-== Get Vroom!
+== How Many People Here...
 
-* http://search.cpan.org/dist/Vroom/
-* http://github.com/ingydotnet/vroom-pm/
+* Have scraped the entire RosettaCode site into a public git repo?!
++* Have seen RosettaCode?
++* Regularly use RosettaCode?
++* Have edited a wiki page on RosettaCode?
++* Have added a new code sample to RosettaCode?
++* Have added a new programming task?
++* Have added a new programming language?
+
 
 ----
-== Vroom as HTML
+== RosettaCode
 
-* http://ingydotnet.github.com/vroom-pm/
+* RosettaCode.org is a MediaWiki wiki
+* A Matrix of Programming Languages x Tasks
+  * 913 Languages
+  * 1228 Tasks
+    * Plus another 410 Draft Tasks
+
 
 ----
-== The End
+== RosettaCode.org
+
+* https://rosettacode.org
+
+* https://rosettacode.org/wiki/Category:Programming_Languages
+  * https://rosettacode.org/wiki/Category:Programming_Languages?from=P
+* https://rosettacode.org/wiki/Category:Programming_Tasks
+
+* https://rosettacode.org/wiki/FizzBuzz/EsoLang#SNUSP
+* https://rosettacode.org/wiki/FizzBuzz#Raku

@@ -1,42 +1,492 @@
 ---- config
 title: Lingy and YAMLScript
 indent: 5
-auto_size: 1
+
+# auto_size: 1
+height: 28
+width: 101
+
 vim_opts: '-u NONE'
 skip: 0
 top: 1
+before: 2
 
 vimrc: |
-  unmap AA
-  unmap QQ
-  set nohlsearch
-  au BufRead * syn match vroom_command "\v^\s*\$.*$"
-  hi vroom_command  term=bold,italic,underline ctermfg=Brown
-  autocmd BufWritePre *.json :syn off
-
-  map j /^\s\+\$<cr>
-  map k ?^\s\+\$<cr>
-  map r :exec '!clear;printf "=\%.0s" {1..80};echo;' . substitute(getline('.'), '^\s\+\$\s\+', '', '')<cr>
-  map m r
-  map <ENTER> r
-  map q ;
-  map qq :q!<cr>
-
-  map 1 :wincmd o<cr>
-  map 2 :wincmd v<cr>
-  map \1 :w<cr>
+  source ../vimrc
 
 ---- center
-Lingy and YAMLScript
+Lingy & YAMLScript
 
-by Ingy dot Net
+News Ways to Program Perl
 
-The Perl and Raku Conference - 2023
+by Ingy dot ؜Net
+
+The Perl and Raku Conference
+July 11, 2023
 Toronto
 
-----
 
-$ cowsay -s YAMLScript
+----
+== WELCOME!!!
+
+* My first TPRC since 2019
+
+* Great to be back
+
+* Welcome to Toronto!
+
+
+----
+== What has Ingy been up to in the past year?
+
++* Writing a new programming language!
+
++* Writing another new programming language!
+
++* Both hosted on Perl :)
+
++* Lots of Perl focus!
+  * Perl Toolchain Summit
+  * toronto.pm
+  * New CPAN modules
+
+
+----
+== But wait there's more!
+
++* Wrote a new package manager (PST)
+  * For 42 different programming languages
+
+* Starting a new YAML implementation (YAMLStar)
+  * For 42 different programming languages
+
+* Created BPAN for Bash module packaging
+
+* Made a Lisp
+
+* Adding destructuring assignment to Perl
+
+* Adding immutable data types to Perl
+
+
+----
+== This talk is about the 2 new programming languages
+
+* YAMLScript and Lingy
+
+* Both hosted by Perl
+* Write Perl/CPAN modules in both 
+* Use regular Perl/CPAN modules from both
+* Both are Works in Progress
+  * Both are very new
+  * Both are currently operational
+  * Even useful already for some things
+
+
+----
+== Expected Perl Benefits of these 2 New Languages
+
+* XS magnitude speed
+* Simple concurrency in Perl
+* Concise and Practical Functional Programming
+  * Code as Data
+  * Programatic Analysis and Refactoring
+  * Data as Code
+
+* Immutable data types
+* Interactive REPL programming
+* Complete Perl Interoperability
+* Code sharing with Clojure Platforms
+  * Java / JVM
+  * JavaScript - Broswer & NodeJS
+  * C# / CLR
+  * Python and others (coming soon)
+
+* Expand the Perl Community
+
+
+----
+== Introducing YAMLScript
+
+* YAMLScript is a New Programming Language!
+
+* YAMLScript syntax is YAML
+
+* Not your Mother's YAML!
+
+
+----
+== 99 Bottles of Beer on the Wall
+
+* In YAMLScript!
+
+$ vim 99-bottles.ys
+
+$ yamlscript 99-bottles.ys | less
+
+$ yamlscript 99-bottles.ys 3
+
+
+----
+== The 'yamlscript' Command
+
+$ cpanm YAMLScript
+
+$ yamlscript --help
+
+$ yamlscript
+
+$ yamlscript -e 'say: "Hello, world."'
+
+$ yamlscript -e 'say: Hello, world.'
+
+
+---- yaml
+
+#!/usr/bin/env yamlscript
+
+# Print the verses to "99 Bottles of Beer"
+#
+# usage:
+#   yamlscript 99-bottles.ys [<count>]
+
+defn main(number=99):
+  map(say):
+    map(paragraph):
+      (number .. 1)
+
+defn paragraph(num): |
+  $(bottles num) of beer on the wall,
+  $(bottles num) of beer.
+  Take one down, pass it around.
+  $(bottles (num - 1)) of beer on the wall.
+
+defn bottles(n):
+  ???:
+    (n == 0) : "No more bottles"
+    (n == 1) : "1 bottle"
+    :else    : "$n bottles"
+
+
+----
+== FizzBuzz in YAMLScript
+
+$ vim fizzbuzz.ys
+
+$ yamlscript fizzbuzz.ys | less
+
+$ yamlscript fizzbuzz.ys 16
+
+$ yamlscript fizzbuzz.ys 16 3
+
+
+----
+== More YAMLScript Example Programs
+
+* https://metacpan.org/release/INGY/YAMLScript-0.1.10/source/example
+
+* https://rosettacode.org/wiki/Category:YAMLScript
+* https://rosettacode.org/wiki/99_bottles_of_beer\#YAMLScript
+* https://rosettacode.org/wiki/Factorial\#YAMLScript
+* https://rosettacode.org/wiki/Fibonacci_sequence\#YAMLScript
+* https://rosettacode.org/wiki/FizzBuzz\#YAMLScript
+* https://rosettacode.org/wiki/Hello_world/Text\#YAMLScript
+
+
+----
+== Using YAMLScript in Perl Today
+
+* Test::More::YAMLScript
+  * https://metacpan.org/pod/Test::More::YAMLScript
+
+* Written in YAMLScript!
+  * https://metacpan.org/dist/Test-More-YAMLScript/source/lib/Test/More
+
+* YAMLTest.pm
+  * Data driven testing
+  * Built on top of Test::More::YAMLScript
+
+
+----
+== What is YAMLScript?!
+
+* Where did the idea(s) for YAMLScript come from?
+
++* YAMLScript is alternate syntax for Lingy
+
+* Lingy is a Lisp
+
+* A Lisp is literally a R E P L
+
+* YAMLScript is just a fancy R (Reader) for Lingy
+
+* https://metacpan.org/release/INGY/YAMLScript-0.1.10/source/lib/YAMLScript
+
+
+----
+== Introducing Lingy
+
+* Lingy in turn is just a Clojure
+
+* Lingy is a Clojure Platform for Perl
+
+* It's the complete Clojure Language
+  * Hosted on Perl
+  * Written in Perl
+
+* Lingy will also target Python and others
+
+
+----
+== Introducing Clojure
+
+* Clojure is a 15 year old Lisp
+* Written by Rich Hickey
+* Hosted in Java on the JVM
+* It feels as dynamic as Perl
+* It is compiled dynamically at runtime
+  * Into JVM bytecode
+  * JVM bytecode JITs into native machine code
+* Interoperable both ways with Java code
+* Immutable data types
+
+
+----
+== What's Good about Clojure?
+
+* Makes Java/JVM programming sane and reliable
+* Makes Functional Programming in JVM simple and reliable
+  * While keeping imperative programming practical
+* Makes Concurrency in Java simple
+* Very fast
+* Interactive REPL
+* Has an active developer community
+* Multi-platform
+  * Java/JVM, JavaScript Browser/NodeJS, C#/CLR
+
+
+----
+== How will Perl benefit from Lingy?
+
+Lingy wants to make Perl better following Clojure's Leads
+
+* Simple FP and Concurrency
+  * Immutable Data Types
+* XS-fast Modules
+  * Lingy compiles to the LingyVM
+* A Complete Lisp for Perl
+* Interactive REPL
+  * Already better than Clojure's
+* Extend our Community
+* Add more Platforms
+  * Python / Ruby / Raku / ...
+
+
+----
+== Clojure / Lingy – REPLs
+
+$ lein repl
+$ lingy
+$ lingy -C
+$ lingy -D
+
+
+----
+See: https://learnxinyminutes.com/docs/clojure/
+
+== Clojure / Lingy – Data Primitives
+
+; Data Primitives
+$ lingy -e '"Perl" 42 3.14 \x {:a true :b nil} [1 2 3]'
+
+----
+== Clojure / Lingy – Variables and Functions
+
+(def foo 42)    ; Define a variable
+(println foo)   ; Print a variable
+$ lingy -e '(def foo 42) (println foo)'
+
+; Define a function
+(defn greet [name]
+  (println (str "Hello " name)))
+$ lingy -e '(defn greet [name] (println (str "Hello " name))) (greet "Perl")'
+
+
+----
+== Clojure / Lingy Conditionals
+
+(if (> x 42)
+  "High"
+  "Low")
+
+(cond
+  (> x 42) "High"
+  (< x 42) "Low"
+  :else    "Perfect")
+
+(when (> x 42) ...)
+(when-not (> x 42) ...)
+
+
+----
+== Using External Code Files
+
+* Clojure/Lingy Libraries
+ * (require 'some.thing)
+ * (require 'some.thing)
+
+(do (println "one")
+    (println "two"))
+
+
+----
+== Lingy <-> Perl Interoperability
+
+; use DateTime
+(import DateTime)
+
+; my $dt = DateTime->now;
+(def dt (.now DateTime))
+
+; say $dt->stringify;
+(println (.stringify dt))
+
+----
+== Implementing Lingy
+
+* Make a Lisp!
+  * https://github.com/kanaka/mal/blob/master/process/guide.md
+  * A Clojure inspired Lisp implemented 100 times in 70+ languages
+  * NO Raku Implementation Yet
+
+* The Clojure Source Code
+  * Clojure is written in Clojure and Java
+  * https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj
+  * https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/RT.java 
+
+* The Lingy Source Code
+  * Lingy is written in Lingy and Perl
+  $ vim lingy/perl
+  * Use Clojure source directly
+
+
+----
+== Compiling Lingy to LingyVM Bytecode
+
+* Clojure compiles to the JVM
+  * The JVM JITs to machine code
+* Lingy should compile to something
+  * Plain Perl?
+  * LLVM?
+  * LuaJIT?
+  * All of the above?
+
+
+----
+== What are the Major Roadmap Milestones for Lingy?
+
+* Using 98% of clojure.core directly
+* Immutable Perl Data Structures
+  * immutable.pm w/HAMT mappings
+* Integrating and passing the Clojure test suite
+
+
+----
+== Hacking Lingy
+
+* Try Clojure examples in Lingy
+* Add missing function
+* (source ...)
+* Add missing Lingy function dependencies
+* Or just do it in Perl code (RT)
+
+
+----
+== Back to YAMLScript
+
+Now that we know that Lingy is just Clojure / Lisp,
+
+and that YAMLScript is just an alternate syntax for Lingy...
+
+Let's take a closer look at YAMLScript.
+
+
+----
+== How YAMLScript Loads
+
+* Parse YAML To Events using YAML::PP
+* Create an internal graph
+* Assign a tag to each node
+  * This is where the YAMLScript magic happens
+* Constuct a Lingy AST
+
+
+----
+== How YAMLScript Loads
+
+* Make use of YAML properties that YAML loaders do not:
+  * Scalar style
+  * Key order
+  * Duplicate keys
+
+    name =: 'Lingy'
+    say: "Hello $name"
+    say:
+    - 'Goodbye'
+    - name
+
+    (def name "Lingy")
+    (do
+      (println (str "Hello " name))
+      (println "Goodbye" name))
+
+
+----
+== YAMLScript Syntax (RTFM !!)
+
+* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-DOCUMENTATION
+
+* https://metacpan.org/pod/YAMLScript#YAML-BASICS
+
+* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-TO-CLOJURE-TRANSFORMATIONS
+
+
+----
+== YAMLScript <-> Perl Interoperability
+
+# use DateTime
+# (import DateTime)
+import: DateTime
+
+# my $dt = DateTime->now;
+# (def dt (.now DateTime))
+dt =: DateTime->now()
+
+# say $dt->stringify;
+# (println (.stringify dt))
+say: dt->stringify()
+
+
+----
+== Make a Lingy!
+
+* Implementing Lingy and YAMLScript is fun and addictive
+* Please join in!
+* Add RosettaCode examples
+* Add missing core functions
+  * Fix things that don't work
+* Help figure out the remaining hard parts
+* Join the TPRC Hackathon is on Friday!
+
 
 ----
 == The End
+
+* Lingy/Perl Interop
+* Using Lingy from Perl
+  $ perl -MLingy -E 'Lingy->new->rep("(map println [1 2 3])")'
+* Debugging Lingy
+
+
+== YAMLScript Things
+* Syntax transformations

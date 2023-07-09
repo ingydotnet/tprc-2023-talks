@@ -1,78 +1,47 @@
-# This is a sample Vroom input file. It should help you get started.
-#
-# Edit this file with your content. Then run `vroom vroom` to start
-# the show!
-#
-# See `perldoc Vroom` for complete details.
-#
 ---- config
-# Basic config options.
-title: Vroom!
+title: Destructuring Syntax for Perl
 indent: 5
 auto_size: 1
-# height: 18
-# width: 69
 vim_opts: '-u NONE'
 skip: 0
+top: 1
 
-# The following options are for Gvim usage.
-# vim: gvim
-# gvimrc: |
-#   set fuopt=maxhorz,maxvert
-#   set guioptions=egmLtT
-#   set guifont=Bitstream_Vera_Sans_Mono:h18
-#   set guicursor=a:blinkon0-ver25-Cursor
-#   colorscheme default
+vimrc: |
+  source ../vimrc
+
 
 ---- center
-Vroom!
+Destructuring
+A New Syntax for Perl Assignment Statements
 
-by Ingy döt Net
+by Ingy döt ؜Net
 
-(hint: press the spacebar)
+The Perl and Raku Conference
+July 13, 2023
+Toronto
 
-----
-== Slideshows in Vim
-
-* Hate using PowerPoint or HTML Slides for Talks?
-+* Use Vroom!
-
-+* You can write you slides in Vim...
-* ...and present them in Vim!
 
 ----
-== Getting Started
+== I Love Coffee!
 
-* Write a file called 'slides.vroom'.
-  * Do this in a new directory.
-* Run 'vroom vroom'.
-* Voilà!
++$ vim example.coffee
 
-----
-== Navigation
+$ coffee example.coffee
 
-* Hit <SPACE> to move forward.
-* Hit <BACKSPACE> to go backwards.
-* Hit 'Q' to quit.
+$ vim example.coffee
 
----- perl,i4
-# This is some Perl code.
-# Notice the syntax highlighting.
-# Run it with the <RR> vim command.
-for my $word (qw(Vroom totally rocks!)) {
-    print "$word\n";
-}
 
 ----
-== Get Vroom!
+== Destructuring Assignment
 
-* http://search.cpan.org/dist/Vroom/
-* http://github.com/ingydotnet/vroom-pm/
+* Put data structure literal on LHS
 
-----
-== Vroom as HTML
+  * [a, b, c] = array
++    * a = array[0]
+    * b = array[1]
+    * c = array[2]
 
-* http://ingydotnet.github.com/vroom-pm/
-
-----
-== The End
++  * {a, b, c} = hash
++    * a = hash{a}
+    * b = hash{b}
+    * c = hash{c}
