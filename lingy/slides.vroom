@@ -251,6 +251,18 @@ $ lingy -e '(defn add+1 [a b] (+ a b 1))' --repl
 ----
 == Introducing Clojure
 
+* How many people have heard of Clojure?
+
++* How many have used it?
+
++* How many _Like_ Clojure?
+
++* Dislike Clojure?
+  +* For reasons other than "Lisp"?
+
+----
+== Introducing Clojure
+
 * Clojure is a 15 year old Lisp
 * Written by Rich Hickey
   * https://www.youtube.com/shorts/liUiRfN9NzQ
@@ -336,6 +348,7 @@ $ lingy -D
 (println (.stringify dt))
 
 $ lingy -e '(import DateTime) (def dt (.now DateTime)) (println (.stringify dt))'
+
 
 ----
 == Implementing Lingy
