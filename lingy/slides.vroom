@@ -45,11 +45,6 @@ Toronto
 
 +* Both hosted on Perl :)
 
-+* Lots of Perl focus!
-  * Perl Toolchain Summit
-  * toronto.pm
-  * New CPAN modules
-
 
 ----
 == But wait there's more!
@@ -86,7 +81,7 @@ Toronto
 ----
 == Expected Perl Benefits of these 2 New Languages
 
-* XS magnitude speed
+* XS magnitude speed (without pain)
 * Simple concurrency in Perl
 * Concise and Practical Functional Programming
   * Code as Data
@@ -130,7 +125,7 @@ $ yamlscript 99-bottles.ys 3
 ----
 == The 'yamlscript' Command
 
-$ cpanm YAMLScript
+$ cpanm YAMLScript      # Install YAMLScript
 
 $ yamlscript --help
 
@@ -238,10 +233,27 @@ $ yamlscript fizzbuzz.ys 16 3
 
 
 ----
+== The 'lingy' Command
+
+$ cpanm Lingy         # Install Lingy
+
+$ lingy --help
+
+$ lingy
+
+$ lingy -e '(println "Hello, world.")'
+
+$ lingy --xxx -e '(defn add+1 [a b] (+ a b 1))'
+
+$ lingy -e '(defn add+1 [a b] (+ a b 1))' --repl
+
+
+----
 == Introducing Clojure
 
 * Clojure is a 15 year old Lisp
 * Written by Rich Hickey
+  * https://www.youtube.com/shorts/liUiRfN9NzQ
 * Hosted in Java on the JVM
 * It feels as dynamic as Perl
 * It is compiled dynamically at runtime
@@ -280,6 +292,9 @@ Lingy wants to make Perl better following Clojure's Leads
 * Extend our Community
 * Add more Platforms
   * Python / Ruby / Raku / ...
+  * Everything but Java
+
+* YAMLScript _will_ target Java (via Clojure)
 
 
 ----
@@ -292,51 +307,20 @@ $ lingy -D
 
 
 ----
-See: https://learnxinyminutes.com/docs/clojure/
+== Quick Intro to Clojure
 
-== Clojure / Lingy – Data Primitives
-
-; Data Primitives
-$ lingy -e '"Perl" 42 3.14 \x {:a true :b nil} [1 2 3]'
-
-----
-== Clojure / Lingy – Variables and Functions
-
-(def foo 42)    ; Define a variable
-(println foo)   ; Print a variable
-$ lingy -e '(def foo 42) (println foo)'
-
-; Define a function
-(defn greet [name]
-  (println (str "Hello " name)))
-$ lingy -e '(defn greet [name] (println (str "Hello " name))) (greet "Perl")'
-
-
-----
-== Clojure / Lingy Conditionals
-
-(if (> x 42)
-  "High"
-  "Low")
-
-(cond
-  (> x 42) "High"
-  (< x 42) "Low"
-  :else    "Perfect")
-
-(when (> x 42) ...)
-(when-not (> x 42) ...)
-
+* https://learnxinyminutes.com/docs/clojure/
 
 ----
 == Using External Code Files
 
 * Clojure/Lingy Libraries
- * (require 'some.thing)
- * (require 'some.thing)
+ * (require 'lingy.core)
+ * (require 'lingy.devel)
+ * (require 'lingy.string)
 
-(do (println "one")
-    (println "two"))
+* (require 'lingy.string) (refer 'lingy.string) 
+* (use 'lingy.string)
 
 
 ----
@@ -350,6 +334,8 @@ $ lingy -e '(defn greet [name] (println (str "Hello " name))) (greet "Perl")'
 
 ; say $dt->stringify;
 (println (.stringify dt))
+
+$ lingy -e '(import DateTime) (def dt (.now DateTime)) (println (.stringify dt))'
 
 ----
 == Implementing Lingy
@@ -392,13 +378,31 @@ $ lingy -e '(defn greet [name] (println (str "Hello " name))) (greet "Perl")'
 
 
 ----
-== Hacking Lingy
+== How to Contribute to Lingy
 
-* Try Clojure examples in Lingy
-* Add missing function
-* (source ...)
-* Add missing Lingy function dependencies
-* Or just do it in Perl code (RT)
+* Find a bug and fix it - '(count {})'
+  $ lingy -C
+* Try some Clojure examples in Lingy
+  * https://rosettacode.org/wiki/FizzBuzz#Clojure
+* Identify missing core functions (foo)
+* ;;;(doc foo)
+* ;;;(source foo)
+* Implement it and PR
+
+* https://raw.githubusercontent.com/lispcast/lispcast.github.io/master/files/clojure-analysis-results.csv
+
+
+----
+== Debugging Lingy
+
+* Use Perl Directly
+
+$ lingy -e '(perl "\\@INC")'
+
+* (use lingy.devel)
+  (XXX *ns*)
+
+$ lingy -D
 
 
 ----
@@ -412,6 +416,18 @@ Let's take a closer look at YAMLScript.
 
 
 ----
+== Generating YAML with YAMLScript
+
+# XXX
+
+
+----
+== Loading Dynamic YAML Files
+
+# XXX
+
+
+----
 == How YAMLScript Loads
 
 * Parse YAML To Events using YAML::PP
@@ -420,9 +436,11 @@ Let's take a closer look at YAMLScript.
   * This is where the YAMLScript magic happens
 * Constuct a Lingy AST
 
+* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-IMPLEMENTATION-DETAILS
+
 
 ----
-== How YAMLScript Loads
+== Loading YAML Differently
 
 * Make use of YAML properties that YAML loaders do not:
   * Scalar style
@@ -468,6 +486,11 @@ say: dt->stringify()
 
 
 ----
+== Using Lingy from Perl
+
+$ perl -MLingy -E 'Lingy->new->rep("(map println [1 2 3])")'
+
+----
 == Make a Lingy!
 
 * Implementing Lingy and YAMLScript is fun and addictive
@@ -478,15 +501,20 @@ say: dt->stringify()
 * Help figure out the remaining hard parts
 * Join the TPRC Hackathon is on Friday!
 
+* Talk to Ingy about Lingy!
+
+  * I'm here until Monday evening
+
+  * IRC (libera.chat)
+    * #lingy
+    * #yamlscript
+
+  * Matrix:
+    * https://matrix.to/#/#chat-lingy:yaml.io
+    * https://matrix.to/#/#chat-yamlscript:yaml.io
+
+  * This info is in Lingy.pm doc on CPAN
+    * https://metacpan.org/dist/Lingy/view/lib/Lingy.pod#SEE-ALSO
 
 ----
 == The End
-
-* Lingy/Perl Interop
-* Using Lingy from Perl
-  $ perl -MLingy -E 'Lingy->new->rep("(map println [1 2 3])")'
-* Debugging Lingy
-
-
-== YAMLScript Things
-* Syntax transformations
