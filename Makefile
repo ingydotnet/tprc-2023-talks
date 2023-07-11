@@ -1,7 +1,5 @@
 SHELL := bash
 
-s ?= 0
-
 VROOM := \
     vroom \
     clean \

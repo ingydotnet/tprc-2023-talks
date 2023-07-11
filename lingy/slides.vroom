@@ -26,6 +26,8 @@ The Perl and Raku Conference
 July 11, 2023
 Toronto
 
++*** 42 Slides! ***
+*** Mostly Live Demos! ***
 
 ----
 == WELCOME!!!
@@ -71,8 +73,11 @@ Toronto
 * YAMLScript and Lingy
 
 * Both hosted by Perl
+* Both available on CPAN now
+
 * Write Perl/CPAN modules in both 
 * Use regular Perl/CPAN modules from both
+
 * Both are Works in Progress
   * Both are very new
   * Both are currently operational
@@ -463,7 +468,7 @@ Let's take a closer look at YAMLScript.
   * This is where the YAMLScript magic happens
 * Constuct a Lingy AST
 
-* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-IMPLEMENTATION-DETAILS
+* https://metacpan.org/pod/YAMLScript\#YAMLSCRIPT-IMPLEMENTATION-DETAILS
 
 
 ----
@@ -489,11 +494,11 @@ Let's take a closer look at YAMLScript.
 ----
 == YAMLScript Syntax (RTFM !!)
 
-* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-DOCUMENTATION
+* https://metacpan.org/pod/YAMLScript\#YAMLSCRIPT-DOCUMENTATION
 
-* https://metacpan.org/pod/YAMLScript#YAML-BASICS
+* https://metacpan.org/pod/YAMLScript\#YAML-BASICS
 
-* https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-TO-CLOJURE-TRANSFORMATIONS
+* https://metacpan.org/pod/YAMLScript\#YAMLSCRIPT-TO-CLOJURE-TRANSFORMATIONS
 
   * Yes-Expressions!
 
@@ -526,7 +531,7 @@ $ vim 99-bottles.ly 99-bottles.ys -O
 ----
 == Test::More::YAMLScript (A Closer Look)
 
-* https://metacpan.org/dist/Test-More-YAMLScript/source/lib/Test/More
+* https://metacpan.org/release/INGY/Test-More-YAMLScript-0.1.6/source/lib/Test/More/YAMLScript.ys
 
 
 ----
@@ -534,7 +539,7 @@ $ vim 99-bottles.ly 99-bottles.ys -O
 
 $ vim config1.ys config1-defaults.yaml -O
 
-$ vim config1.yaml config1.ys -O
+$ vim config1.ys config1.yaml -O
 
 $ vim load-ys-yaml.pl
 
@@ -577,4 +582,4 @@ $ vim YAML-PP-YAMLScript.pm
     * https://matrix.to/#/#chat-yamlscript:yaml.io
 
   * This info is in Lingy.pm doc on CPAN
-    * https://metacpan.org/dist/Lingy/view/lib/Lingy.pod#SEE-ALSO
+    * https://metacpan.org/dist/Lingy/view/lib/Lingy.pod\#SEE-ALSO
