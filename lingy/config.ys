@@ -1,0 +1,27 @@
+--- !yamlscript
+
+default =:
+  load-file: "config-defaults.ys"
+
+entries =: !
+- size: 43
+
+- color: pink
+  fast: true
+  cool: [1, 2, 3]
+
+- {}
+
+- fast: true
+  other: stuff
+
+data =:
+  vec:
+    map:
+    - fn (m): merge(default m)
+    - entries
+
+import: YAML::PP
+ypp =: YAML::PP->new()
+
+say: ypp->dump_string(data)

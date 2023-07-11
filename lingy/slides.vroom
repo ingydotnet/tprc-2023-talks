@@ -14,6 +14,7 @@ before: 2
 vimrc: |
   source ../vimrc
 
+
 ---- center
 Lingy & YAMLScript
 
@@ -201,6 +202,13 @@ $ yamlscript fizzbuzz.ys 16 3
   * Data driven testing
   * Built on top of Test::More::YAMLScript
 
+
+----
+== Writing YAML with YAMLScript
+
+$ vim config1.ys config1-defaults.yaml -O
+
+$ yamlscript config1.ys
 
 ----
 == What is YAMLScript?!
@@ -489,9 +497,39 @@ say: dt->stringify()
 
 
 ----
+== Comparing Lingy & YAMLScript
+
+$ vim 99-bottles.ly 99-bottles.ys -O
+
+* YAMLScript will target Clojure and ClojureScript
+  in addition to Lingy.
+
+
+----
+== Test::More::YAMLScript (A Closer Look)
+
+* https://metacpan.org/dist/Test-More-YAMLScript/source/lib/Test/More
+
+
+----
+== Loading YAMLScript as a YAML File
+
+$ vim config1.ys config1-defaults.yaml -O
+
+$ vim config1.yaml config1.ys -O
+
+$ vim load-ys-yaml.pl
+
+$ perl load-ys-yaml.pl
+
+
+----
 == Using Lingy from Perl
 
-$ perl -MLingy -E 'Lingy->new->rep("(map println [1 2 3])")'
+* my $result = Lingy->eval("(map println [1 2 3])");
+
+$ vim YAML-PP-YAMLScript.pm
+
 
 ----
 == Make a Lingy!
