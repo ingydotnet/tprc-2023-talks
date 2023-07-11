@@ -126,7 +126,9 @@ $ yamlscript 99-bottles.ys 3
 ----
 == The 'yamlscript' Command
 
-$ cpanm YAMLScript      # Install YAMLScript
+* Install YAMLScript
+
+  $ cpanm YAMLScript
 
 $ yamlscript --help
 
@@ -231,7 +233,7 @@ $ yamlscript config1.ys
 
 * Lingy in turn is just a Clojure
 
-* Lingy is a Clojure Platform for Perl
+* Lingy is a "Clojure Platform" for Perl
 
 * It's the complete Clojure Language
   * Hosted on Perl
@@ -243,7 +245,9 @@ $ yamlscript config1.ys
 ----
 == The 'lingy' Command
 
-$ cpanm Lingy         # Install Lingy
+* Install Lingy
+
+  $ cpanm Lingy
 
 $ lingy --help
 
@@ -309,12 +313,23 @@ Lingy wants to make Perl better following Clojure's Leads
 * A Complete Lisp for Perl
 * Interactive REPL
   * Already better than Clojure's
-* Extend our Community
 * Add more Platforms
   * Python / Ruby / Raku / ...
   * Everything but Java
 
-* YAMLScript _will_ target Java (via Clojure)
+
+----
+== Possible Non-technical Benefits
+
+* Extend our Community
+  * Clojure is a somewhat niche language
+  * Has dedicated community
+
+* Everyone uses YAML
+  * YAMLScript may help lead people to
+    * Lingy
+    * CLojure
+    * Perl
 
 
 ----
@@ -330,6 +345,9 @@ $ lingy -D
 == Quick Intro to Clojure
 
 * https://learnxinyminutes.com/docs/clojure/
+
+* Commas are Whitespace!
+
 
 ----
 == Using External Code Files
@@ -542,6 +560,10 @@ $ vim YAML-PP-YAMLScript.pm
 * Help figure out the remaining hard parts
 * Join the TPRC Hackathon is on Friday!
 
+
+----
+== The End
+
 * Talk to Ingy about Lingy!
 
   * I'm here until Monday evening
@@ -556,6 +578,3 @@ $ vim YAML-PP-YAMLScript.pm
 
   * This info is in Lingy.pm doc on CPAN
     * https://metacpan.org/dist/Lingy/view/lib/Lingy.pod#SEE-ALSO
-
-----
-== The End
