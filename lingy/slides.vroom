@@ -429,18 +429,6 @@ Let's take a closer look at YAMLScript.
 
 
 ----
-== Generating YAML with YAMLScript
-
-# XXX
-
-
-----
-== Loading Dynamic YAML Files
-
-# XXX
-
-
-----
 == How YAMLScript Loads
 
 * Parse YAML To Events using YAML::PP
@@ -480,6 +468,8 @@ Let's take a closer look at YAMLScript.
 * https://metacpan.org/pod/YAMLScript#YAML-BASICS
 
 * https://metacpan.org/pod/YAMLScript#YAMLSCRIPT-TO-CLOJURE-TRANSFORMATIONS
+
+  * Yes-Expressions!
 
 
 ----
