@@ -12,6 +12,7 @@ vimrc: |
 
 ---- center
 RosettaCode
+
 The Polyglot Pirate's Treasure Chest
 
 by Ingy döt ؜Net
@@ -51,24 +52,28 @@ Toronto
   * Plus another 411 Draft Tasks
   * (As of 8:00am this morning!)
 
-* Start in 2007 by Mike Mol
+* https://rosettacode.org/
+
+* Started in 2007 by Mike Mol
+
+* The Rosetta Stone for Code
 
 * An Acmeist's Treasure Chest!
 
+* Good way to test and promote new Languages
+
 
 ----
-== Components
+== Component Names
 
-* Languages
-* Tasks
-* Drafts
-* Samples
+* Language (Lang) – Specific Programming Language
+* Task            – Programming Problem to Code
+* Draft           – New Task Idea
+* Sample          – One Task Solution in a Language
 
 
 ----
 == RosettaCode.org
-
-* https://rosettacode.org
 
 * https://rosettacode.org/wiki/Category:Programming_Languages
   * https://rosettacode.org/wiki/Category:Programming_Languages?from=P
@@ -91,6 +96,9 @@ Toronto
   * Cut and paste it into a file
   * Run the file
 
+* https://rosettacode.org/wiki/9_billion_names_of_God_the_integer\#Clojure
+  $ lein repl
+
 
 ----
 == Introducing RosettaCodeData
@@ -99,26 +107,28 @@ Toronto
   * Google "RosettaCodeData"
   * "Acmeism" is my personal programming philosophy :)
 
-* git clone https://github.com/acmeism/RosettaCodeData --depth=1
+$ git clone https://github.com/acmeism/RosettaCodeData --depth=1
   * 913MB
   * 116872 files
   * 84599 directories
   * 82442 symlinks
   * Takes about 30 seconds
 
+$ clojure -M RosettaCodeData/Task/9-billion-names-of-God-the-integer/Clojure/9-billion-names-of-god-the-integer.clj
+
+* Started in 2013
+
 
 ----
-== Started in 2013
-
-
-----
-== Updating RosettaCodeData
+== Updating RosettaCodeData Today
 
 * cd RosettaCodeData
 
 * make build
 
 * Takes about 30 minutes
+
+* Last updated Sat July 1 2023
 
 
 ----
@@ -128,7 +138,17 @@ $ cpanm RosettaCode
 
 * This is the code that scrapes RosettaCode.org
 
-* MediaWiki::Bot
+* Built over MediaWiki::Bot
+
+
+----
+== Updating RosettaCodeData in 2013-2020
+
+* Every Update would crash at least a dozen times
+
+* Needed to fix the RosettaCode.pm module
+
+* Or fix the bad wiki syntax
 
 
 ----
@@ -136,23 +156,23 @@ $ cpanm RosettaCode
 
 * Last Data update was Jan 2020
 
-* Until last week
+* Until last week!!
+  * CDD,FTW!  (Conference Driven Development)
 
 * A major wiki page formatting seems to have happened
 
 * Had to rewrite most of the code
 
-* Old process involved fixing many pages during a run
-
 * Now runs clean every time
 
 * Changed primary branch from master to main
 
-* Last updated Sat July 1 2023
+* Code is cleaner and more modular
+  * And on CPAN now
 
 
 ----
-== Statistics Scripts
+== RosettaCodeData Statistics Scripts (rcd-*)
 
 $ rcd-api-list-all-langs | less
   $ rcd-api-list-all-langs | wc
@@ -182,6 +202,9 @@ $ rcd-new-tasks
 
 $ vim YAMLScript/
 
+$ yamlscript Lang/YAMLScript/99-bottles-of-beer/99-bottles-of-beer.ys | less
+
+$ yamlscript Lang/YAMLScript/99-bottles-of-beer/99-bottles-of-beer.ys 3
 
 ----
 == FizzBuzz – Perl
@@ -194,6 +217,16 @@ $ vim Perl/FizzBuzz/
 
 $ vim Raku/FizzBuzz/
 
+$ cat Task/FizzBuzz/Raku/fizzbuzz-5.raku
+
+$ raku Task/FizzBuzz/Raku/fizzbuzz-5.raku
+
+$ wc -c Task/FizzBuzz/Raku/fizzbuzz-5.raku
+
++$ for f in $(find Task/FizzBuzz -type f); do printf '%08d %s\n' $(wc -c "$f" | awk '{print $1}') "$f"; done
+
+$ for f in $(find Task/FizzBuzz -type f); do printf '%08d %s\n' $(wc -c "$f" | awk '{print $1}') "$f"; done | sort -r | tail
+
 
 ----
 == FizzBuzz – YAMLScript
@@ -204,7 +237,7 @@ $ vim YAMLScript/FizzBuzz/
 ----
 == FizzBuzz – SNUSP
 
-* https://rosettacode.org/wiki/FizzBuzz/EsoLang#SNUSP
+* https://rosettacode.org/wiki/FizzBuzz/EsoLang\#SNUSP
 
 * SNUSP -> SNUSP's Not Unix, but a Structured Path
 
@@ -213,6 +246,12 @@ $ vim YAMLScript/FizzBuzz/
 $ cpanm Language::SNUSP
 
 $ cpanm --look Language::SNUSP
+
+$ vim fizzbuzz.snusp
+
+$ snusp fizzbuzz.snusp
+
+$ snusp -d fizzbuzz.snusp
 
 
 ----
