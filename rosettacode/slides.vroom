@@ -38,22 +38,31 @@ Toronto
 == How Many People Here...
 
 * Have scraped the entire RosettaCode site into a public git repo?!
-+* Have seen RosettaCode?
-+* Regularly use RosettaCode?
-+* Have edited a wiki page on RosettaCode?
-+* Have added a new code sample to RosettaCode?
-+* Have added a new programming task?
-+* Have added a new programming language?
 
 
 ----
-== RosettaCode
+== Introducing RosettaCode
 
 * RosettaCode.org is a MediaWiki wiki
+
 * A Matrix of Programming Languages x Tasks
-  * 913 Languages
-  * 1228 Tasks
-    * Plus another 410 Draft Tasks
+  * 914 Languages
+  * 1230 Tasks
+  * Plus another 411 Draft Tasks
+  * (As of 8:00am this morning!)
+
+* Start in 2007 by Mike Mol
+
+* An Acmeist's Treasure Chest!
+
+
+----
+== Components
+
+* Languages
+* Tasks
+* Drafts
+* Samples
 
 
 ----
@@ -65,5 +74,166 @@ Toronto
   * https://rosettacode.org/wiki/Category:Programming_Languages?from=P
 * https://rosettacode.org/wiki/Category:Programming_Tasks
 
+* https://rosettacode.org/wiki/FizzBuzz/EsoLang\#SNUSP
+* https://rosettacode.org/wiki/FizzBuzz\#Raku
+
+
+----
+== Problems with RosettaCode.org
+
+* Navigating the site is awkward at best
+
+* Program links from Language don't get you there
+  * https://rosettacode.org/wiki/Category:YAMLScript\#mw-pages
+
+* Running programs from the site is painful
+  * Find a program
+  * Cut and paste it into a file
+  * Run the file
+
+
+----
+== Introducing RosettaCodeData
+
+* https://github.com/acmeism/RosettaCodeData
+  * Google "RosettaCodeData"
+  * "Acmeism" is my personal programming philosophy :)
+
+* git clone https://github.com/acmeism/RosettaCodeData --depth=1
+  * 913MB
+  * 116872 files
+  * 84599 directories
+  * 82442 symlinks
+  * Takes about 30 seconds
+
+
+----
+== Started in 2013
+
+
+----
+== Updating RosettaCodeData
+
+* cd RosettaCodeData
+
+* make build
+
+* Takes about 30 minutes
+
+
+----
+== RosettaCode.pm
+
+$ cpanm RosettaCode
+
+* This is the code that scrapes RosettaCode.org
+
+* MediaWiki::Bot
+
+
+----
+== Recent Rewrite
+
+* Last Data update was Jan 2020
+
+* Until last week
+
+* A major wiki page formatting seems to have happened
+
+* Had to rewrite most of the code
+
+* Old process involved fixing many pages during a run
+
+* Now runs clean every time
+
+* Changed primary branch from master to main
+
+* Last updated Sat July 1 2023
+
+
+----
+== Statistics Scripts
+
+$ rcd-api-list-all-langs | less
+  $ rcd-api-list-all-langs | wc
+
+$ rcd-api-list-all-tasks | less
+  $ rcd-api-list-all-tasks | wc
+
+$ rcd-langs-per-task | less
+  $ rcd-langs-per-task | sort | tail
+
+$ rcd-samples-per-lang | sort | tail
+$ rcd-tasks-per-lang | sort | tail
+$ rcd-samples-per-task | sort | tail
+
+$ rcd-new-langs
+$ rcd-new-tasks
+
+
+----
+== Esoteric Languages
+
+* https://rosettacode.org/wiki/Category:Esoteric_Languages
+
+
+----
+== YAMLScript Samples
+
+$ vim YAMLScript/
+
+
+----
+== FizzBuzz – Perl
+
+$ vim Perl/FizzBuzz/
+
+
+----
+== FizzBuzz – Raku
+
+$ vim Raku/FizzBuzz/
+
+
+----
+== FizzBuzz – YAMLScript
+
+$ vim YAMLScript/FizzBuzz/
+
+
+----
+== FizzBuzz – SNUSP
+
 * https://rosettacode.org/wiki/FizzBuzz/EsoLang#SNUSP
-* https://rosettacode.org/wiki/FizzBuzz#Raku
+
+* SNUSP -> SNUSP's Not Unix, but a Structured Path
+
+* https://wiki.c2.com/?SnuspLanguage
+
+$ cpanm Language::SNUSP
+
+$ cpanm --look Language::SNUSP
+
+
+----
+== What's Next?
+
+* cron - Auto-update each day
+
+* Unicode fixes
+
+* Fixing file extensions
+
+* Auto updating Languages list
+
+* Add "Esoteric Languages"
+
+* Add "Draft Tasks"
+
+
+----
+== The End
+
+* RosettaCodeData could use help
+
+* Reach out to me if you are interested
