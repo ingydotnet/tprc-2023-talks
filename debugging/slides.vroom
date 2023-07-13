@@ -1,5 +1,5 @@
 ---- config
-title: Debugging Perl in 2023
+title: Debugging Perl in your Browser - And Other Stuff
 indent: 5
 auto_size: 1
 vim_opts: '-u NONE'
@@ -11,13 +11,144 @@ vimrc: |
 
 
 ---- center
-Devel::hdb
-Debugging Perl in your Browser
+Devel::hdb (and other stuff)
 
-by Ingy döt ؜Ne
+Debugging Perl in your Browser
+And Other Stuff
+
+by Ingy dot Net
 
 The Perl and Raku Conference
 July 13, 2023
 Toronto
 
 
+----
+== Introducing Devel::hdb
+
+* https://metacpan.org/pod/Devel::hdb
+
+$ vim program.pl
+
+$ perl program.pl
+
+$ perl -d program.pl
+
+$ perl -d:hdb program.pl
+
+
+----
+== destructure.pl
+
+$ vim destructure.pl
+
+$ perl destructure.pl
+
+$ perl -d destructure.pl
+
+$ perl -d:hdb destructure.pl
+
+$ perl -d destructure2.pl
+
+$ perl -d:hdb destructure2.pl
+
++* We should improve this module!
+
+
+----
+== Devel::Chitin
+
+* Devel::hdb is a subclass of Devel::Chitin
+
+* A base class for writing Perl debuggers
+
+* https://metacpan.org/pod/Devel::Chitin
+
+
+----
+== The End
+
++* That's all I really have for Devel::hdb
+
++* People on #perl seemed unaware and excited
+
++* Back in March
+
++* Submitted a talk because we needed talks
+
++* I wanted to improve it
+
++* Got into way too many other cool things for Perl!
+
++* Anyone else have anything to add about it?
+
++* I want to show 2 other debugging tools
+
+
+----
+== XXX - See Your Data in the Nude
+
+* https://metacpan.org/dist/XXX/view/lib/XXX.pod
+
+* Exports:
+
+  * WWW - warn args as YAML and return
+  * XXX - same but die
+  * YYY - like WWW but print
+  * ZZZ - like XXX but confess
+
+$ perl -MXXX -e 'XXX \\%INC'
+
+$ vim destructure2.pl
+
+
+----
+== Use XXX. Don't 'use XXX;'
+
+* ::XXX ...
+
+* PERL5OPT=-MXXX=global perl destructure2.pl
+
+* export PERL5OPT=-MXXX=global
+
+$ vim destructure2.pl
+
+
+----
+== Carp::Always
+
+* Who already knows about Carp::Always?
+
++* Who uses it regularly?
+
++$ clojure -M -e '(count [:a 1 :b 2])'
+
+$ clojure -M -e '(count {:a 1 :b 2})'
+
+$ lingy -e '(count [:a 1 :b 2])'
+
+$ lingy -e '(count {:a 1 :b 2})'
+
++$ PERL5OPT=-MCarp::Always lingy -e '(count {:a 1 :b 2})'
+
+
+----
+== CA !!
+
+$ which CA
+
+$ cat `which CA`
+
+$ lingy -e '(count {:a 1 :b 2})'
+
+* CA !!
+
+$ CA lingy -e '(count {:a 1 :b 2})'
+
+
+----
+== The End Again
+
+* Questions?
+
++* Tell me about your favorite debugging tools
