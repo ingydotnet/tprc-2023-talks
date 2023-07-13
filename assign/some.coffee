@@ -9,5 +9,12 @@ people = [
 ]
 
 for person in people
-  {name, favs: [drink, color]} = person
+  {
+    name,
+    favs: [
+      drink,
+      color
+    ]
+  } = person
+
   console.log "#{name} wears #{color} and drinks #{drink}."
