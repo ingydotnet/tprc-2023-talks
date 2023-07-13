@@ -127,6 +127,12 @@ $ perl destructure.pl
 
 
 ----
+== For Ovid
+
+$ vim json.pl unpack-json.pl -O
+
+
+----
 == Perl Destructuring Basic Rules
 
     use assign::0;
